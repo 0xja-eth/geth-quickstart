@@ -1,0 +1,19 @@
+{
+  "name": "schedule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "new-account": "cd ./script & node ./add.mjs balance=30000000000000000000 isAuthNode=true",
+    "add-account": "cd ./script & node ./add.mjs privateKey=.privateKey balance=30000000000000000000 isAuthNode=true",
+
+    "init": "cd ./script & node ./init.mjs",
+    "start": "cd ./script & node ./start.mjs",
+    "mine": "cd ./script & node ./start.mjs mine=true"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  }
+}
