@@ -7,6 +7,6 @@ const networkId = genesis.config.chainId;
 
 spawnSync("geth", [
 	"dumpconfig", "--datadir", "data", "--http", "--http.port", httpPort,
-	"--http.addr", "0.0.0.0", "--networkid", networkId, "config.toml"
+	"--http.addr", "0.0.0.0", "--networkid", networkId, "--nodiscover", "config.toml"
 ])
 spawnSync("geth", ["init", "--datadir", "data", "genesis.json"])
