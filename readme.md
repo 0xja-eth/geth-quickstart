@@ -1,5 +1,5 @@
 # Shell 指令
-## 创建账户（一般用来挖矿）
+## 创建账户
 ``` shell
 geth account new --datadir data
 ```

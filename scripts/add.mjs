@@ -9,7 +9,7 @@ const geth = !privateKey ?
 
 const res = geth.stdout.toString();
 
-const addressRegex = /Public address of the key:\s+(0x[a-fA-F0-9]{40})/;
+const addressRegex = !privateKey ? /0x([a-fA-F0-9]{40})/ : /{([a-fA-F0-9]{40})}/
 // const keystoreRegex = /Path of the secret key file:\s+(data\\keystore\\[^ ]+)/;
 
 const address = res.match(addressRegex)?.[1];
@@ -22,7 +22,7 @@ if (balance || isAuthNode.toLowerCase() === "true") {
 		const eLen = genesis.extradata.length;
 		const prefix = genesis.extradata.slice(0, eLen - 130)
 		const suffix = genesis.extradata.slice(eLen - 130)
-		genesis.extradata = `${prefix}${address.slice(2)}${suffix}`
+		genesis.extradata = `${prefix}${address}${suffix}`
 	}
 	writeFile("genesis.json", JSON.stringify(genesis));
 }
